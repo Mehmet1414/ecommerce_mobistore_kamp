@@ -97,7 +97,7 @@ const Header = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link to={"#"} className="title">
+                          <Link to={"/cart"} className="title">
                             <i className="fa fa-shopping-cart"></i>{" "}
                             <sup className="cart-quantity">1</sup>
                           </Link>
@@ -137,44 +137,42 @@ const Header = () => {
                           </ul>
                         </li>
                         <li>
-                          <a href="about.html">About</a>
+                          <Link to={"/about"}>About</Link>
                         </li>
                         <li className="has-sub">
                           <a href="#">Pages</a>
                           <ul>
                             <li>
-                              <a href="checkout.html">Checkout Form</a>
+                              <Link to={"/checkout"}>Checkout Form</Link>
                             </li>
                             <li>
-                              <a href="cart.html">Cart</a>{" "}
+                              <Link to={"/cart"}>Cart</Link>
                             </li>
                             <li>
-                              <Link to={"/auth/login"}>Login</Link>{" "}
+                              <Link to={"/auth/login"}>Login</Link>
                             </li>
                             <li>
-                              <Link to={"/auth/register"}>Signup</Link>{" "}
+                              <Link to={"/auth/register"}>Signup</Link>
                             </li>
                             <li>
-                              <a href="404-page.html">404-page</a>{" "}
+                              <a href="404-page.html">404-page</a>
                             </li>
-                            <li>
-                              <a href="styleguide.html">styleguide</a>{" "}
-                            </li>
+                            
                           </ul>
                         </li>
                         <li className="has-sub">
                           <a href="#">Blog</a>
                           <ul>
                             <li>
-                              <a href="blog-default.html">Blog Default</a>
+                              <Link to={"/blog/default"}> Blog Default</Link>
                             </li>
                             <li>
-                              <a href="blog-single.html">Blog Single</a>
+                              <Link to={"/blog/detail"}>Blog Detail</Link>
                             </li>
                           </ul>
                         </li>
                         <li>
-                          <a href="contact-us.html">Contact Us</a>
+                          <Link to={"/contact"}>Contact Us</Link>
                         </li>
                       </ul>
                     </div>

@@ -12,6 +12,10 @@ import RegisterPage from "./pages/register";
 import ContactUs from "./pages/contact";
 import ProductList from "./pages/product/ProductList";
 import ProductDetail from "./pages/product/ProductDetail";
+import CheckOut from "./pages/checkOut";
+import CartPage from "./pages/cart";
+import BlogDefault from "./pages/blog/BlogDefault";
+import BlogDetail from "./pages/blog/BlogDetail";
 
 function App() {
   const api = useApi();
@@ -43,6 +47,12 @@ function App() {
         <Route path="product">
           <Route path="list" element={<ProductList />} />
           <Route path="detail" element={<ProductDetail />} />
+        </Route>
+        <Route path="checkout" element={<CheckOut />} />
+        <Route path="cart" element={<CartPage />} />
+        <Route path="blog">
+          <Route path="default" element={<BlogDefault />} />
+          <Route path="detail" element={<BlogDetail />} />
         </Route>
       </Routes>
       <Footer />

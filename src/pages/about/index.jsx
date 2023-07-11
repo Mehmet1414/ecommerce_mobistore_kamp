@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const AboutPage = () => {
   return (
     <>
@@ -9,7 +11,7 @@ const AboutPage = () => {
               <div className="page-breadcrumb">
                 <ol className="breadcrumb">
                   <li>
-                    <a href="#">Home</a>
+                    <Link to={"/"}>Home</Link>
                   </li>
                   <li>About</li>
                 </ol>
