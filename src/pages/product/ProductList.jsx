@@ -55,7 +55,8 @@ const ProductList = () => {
                     <ul
                       style={{
                         display: menuState === "category" ? "block" : "none",
-                      }}onClick={handleSubMenuClick}
+                      }}
+                      onClick={handleSubMenuClick}
                     >
                       <li>
                         <Link href="#">Smart Phones</Link>
@@ -68,14 +69,19 @@ const ProductList = () => {
                       </li>
                     </ul>
                   </li>
-                  <li className={
+                  <li
+                    className={
                       menuState === "brand" ? "has-sub active" : "has-sub"
                     }
-                    onClick={() => handleClick("brand")}>
+                    onClick={() => handleClick("brand")}
+                  >
                     <Link href="#">Brand (07)</Link>
-                    <ul  style={{
+                    <ul
+                      style={{
                         display: menuState === "brand" ? "block" : "none",
-                      }}>
+                      }}
+                      onClick={handleSubMenuClick}
+                    >
                       <li>
                         <label>
                           <input type="checkbox" />
@@ -120,11 +126,19 @@ const ProductList = () => {
                       </li>
                     </ul>
                   </li>
-                  <li className={menuState==="price" ?  "has-sub active" : "has-sub" }onClick={() => handleClick("price")} >
+                  <li
+                    className={
+                      menuState === "price" ? "has-sub active" : "has-sub"
+                    }
+                    onClick={() => handleClick("price")}
+                  >
                     <Link href="#">Price</Link>
-                    <ul  style={{
+                    <ul
+                      style={{
                         display: menuState === "price" ? "block" : "none",
-                      }}>
+                      }}
+                      onClick={handleSubMenuClick}
+                    >
                       <li>
                         <label>
                           <input type="checkbox" />
@@ -171,9 +185,19 @@ const ProductList = () => {
                       </li>
                     </ul>
                   </li>
-                  <li className="has-sub">
+                  <li
+                    className={
+                      menuState === "screenSize" ? "has-sub active" : "has-sub"
+                    }
+                    onClick={() => handleClick("screenSize")}
+                  >
                     <Link href="#">Screen Size</Link>
-                    <ul>
+                    <ul
+                      style={{
+                        display: menuState === "screenSize" ? "block" : "none",
+                      }}
+                      onClick={handleSubMenuClick}
+                    >
                       <li>
                         <label>
                           <input type="checkbox" />
