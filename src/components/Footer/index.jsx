@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 const Footer = () => {
   return (
@@ -32,11 +33,11 @@ const Footer = () => {
                     <div className="footer-widget">
                         <h3 className="footer-title">Quick Links</h3>
                         <ul className="arrow">
-                            <li><a href="#">Home </a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Mobiles</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><Link to={"/"}>Home </Link></li>
+                            <li><Link to={"/about"}>About</Link></li>
+                            <li><Link to={"/"}>Mobiles</Link></li>
+                            <li><Link to={"/"}>Blog</Link></li>
+                            <li><Link to={"/contact"}>Contact</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -46,11 +47,11 @@ const Footer = () => {
                     <div className="footer-widget">
                         <h3 className="footer-title">Policy Info</h3>
                         <ul className="arrow">
-                            <li><a href="#">Payments</a></li>
-                            <li><a href="#">Cancellation &amp; Returns</a></li>
-                            <li><a href="#">Shipping and Delivery</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">T &amp; C</a></li>
+                            <li><Link to={"/"}>Payments</Link></li>
+                            <li><Link to={"/"}>Cancellation &amp; Returns</Link></li>
+                            <li><Link to={"/"}>Shipping and Delivery</Link></li>
+                            <li><Link to={"/"}>Privacy Policy</Link></li>
+                            <li><Link to={"/"}>T &amp; C</Link></li>
                         </ul>
                     </div>
                 </div>
