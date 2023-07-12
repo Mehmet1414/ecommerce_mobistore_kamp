@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import GoogleMapp from "../../components/googleMap";
 
 const ContactUs = () => {
   return (
@@ -168,44 +169,48 @@ const ContactUs = () => {
               </>
             </div>
 
-            <>
-              {/* support-block */}
-              <div className="row">
-                <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                  <div className="box">
-                    <div className="box-head">
-                      <h3 className="head-title">How Can We Help You?</h3>
-                    </div>
-                    <div className="box-body">
-                      <div className="row">
-                        <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                          <div className="suport-block">
-                            <div className="support-icon">
-                              <img src="../public/assets/images/inquiry_icon.png" alt="" />
-                            </div>
-                            <div className="support-content">
-                              <h4>Sales Inquiry</h4>
-                              <p>
-                                Suspendisse sodales venenatis velitut fringilla
-                                lorem on vulputateam augue nislpretium
-                                qutristique sodales serotut fringilla.
-                              </p>
-                            </div>
+            {/* support-block */}
+            <div className="row">
+              <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div className="box">
+                  <div className="box-head">
+                    <h3 className="head-title">How Can We Help You?</h3>
+                  </div>
+                  <div className="box-body">
+                    <div className="row">
+                      <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div className="suport-block">
+                          <div className="support-icon">
+                            <img
+                              src="../public/assets/images/inquiry_icon.png"
+                              alt=""
+                            />
+                          </div>
+                          <div className="support-content">
+                            <h4>Sales Inquiry</h4>
+                            <p>
+                              Suspendisse sodales venenatis velitut fringilla
+                              lorem on vulputateam augue nislpretium qutristique
+                              sodales serotut fringilla.
+                            </p>
                           </div>
                         </div>
-                        <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                          <div className="suport-block">
-                            <div className="support-icon">
-                              <img src="../public/assets/images/support_icon.png" alt="" />
-                            </div>
-                            <div className="support-content">
-                              <h4>Customer Support</h4>
-                              <p>
-                                Pendisse sodales venenatis velitut fringilla
-                                lorem on vulputateam augue nislpretium
-                                qutristique sodales seron magna.
-                              </p>
-                            </div>
+                      </div>
+                      <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div className="suport-block">
+                          <div className="support-icon">
+                            <img
+                              src="../public/assets/images/support_icon.png"
+                              alt=""
+                            />
+                          </div>
+                          <div className="support-content">
+                            <h4>Customer Support</h4>
+                            <p>
+                              Pendisse sodales venenatis velitut fringilla lorem
+                              on vulputateam augue nislpretium qutristique
+                              sodales seron magna.
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -213,17 +218,17 @@ const ContactUs = () => {
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* /.support-block */}
-            </>
-            <>
-              {/* contact-map */}
-              <div id="contact-map">
+            {/* /.support-block */}
 
+            {/* contact-map */}
 
-              </div>
-              {/* /.contact-map */}
-            </>
+            <div id="contact-map" >
+              <GoogleMapp />
+            </div>
+
+            {/* /.contact-map */}
           </div>
         </div>
       </>

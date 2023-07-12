@@ -17,7 +17,9 @@ import CartPage from "./pages/cart";
 import BlogDefault from "./pages/blog/BlogDefault";
 import BlogDetail from "./pages/blog/BlogDetail";
 
+
 function App() {
+
   const api = useApi();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -28,7 +30,7 @@ function App() {
           itemsPerPage: 30,
         },
       });
-      console.log(">>>category verileri >>", categoryRespons);
+      console.log(">>>category verileri >>", categoryRespons.data);
       dispatch(setCategories(categoryRespons.data));
     })();
   }, []);

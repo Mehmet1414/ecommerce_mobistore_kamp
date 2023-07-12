@@ -1,6 +1,12 @@
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useApi } from "../../hook/useApi";
+import { userLogin } from "../../redux/AuthSlice";
 
 const LoginPage = () => {
+  const api = useApi();
+  const dispatch = useDispatch();
+  const authState = useSelector((state) => state.authState.userLogin);
   return (
     <>
       {/* <!-- page-header --> */}
@@ -35,7 +41,32 @@ const LoginPage = () => {
                       <h3 className="mb10">Login</h3>
                     </div>
                     {/* <!-- form --> */}
-                    <form>
+                    <form
+                      onSubmit={async (e) => {
+                        e.preventDefault();
+                        const formData = new FormData(e.currentTarget);
+                        const formJason = Object.fromEntries(
+                          formData.entries()
+                        );
+
+                        console.log(">>>login form>>>", formJason);
+
+                        const authResponse = await api.post(
+                          "shop/authentication-token",
+                          formJason,
+                          {
+                            headers: {
+                              Accept: "application/json",
+                              "Content-Type": "application/json",
+                            },
+                          }
+                        );
+                        
+                        console.log("authResponse >>>", authResponse);
+                        
+                        dispatch(authState(authResponse));
+                      }}
+                    >
                       <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="form-group">
                           <label
@@ -45,7 +76,7 @@ const LoginPage = () => {
                           <div className="login-input">
                             <input
                               id="email"
-                              name="emaol"
+                              name="email"
                               type="text"
                               className="form-control"
                               placeholder="Enter your email id"
@@ -79,11 +110,11 @@ const LoginPage = () => {
                       </div>
                       <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb20 ">
                         <button className="btn btn-primary btn-block mb10">
-                          Register
+                          Login
                         </button>
                         <div>
                           <p>
-                            Have an Acount? <a href="#">Login</a>
+                            Have not an Acount? <Link to={"/auth/register"}>Register</Link>
                           </p>
                         </div>
                       </div>

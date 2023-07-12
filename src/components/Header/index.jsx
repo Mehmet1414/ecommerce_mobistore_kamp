@@ -78,6 +78,12 @@ const Header = () => {
                           </Link>
                         </li>
                         <li className="hidden-xs">|</li>
+                        <li>
+                          <Link to={"/cart"} className="title">
+                            <i className="fa fa-shopping-cart"></i>{" "}
+                            <sup className="cart-quantity">1</sup>
+                          </Link>
+                        </li>
                       </>
                     ) : (
                       <>
@@ -96,12 +102,7 @@ const Header = () => {
                             Register
                           </Link>
                         </li>
-                        <li>
-                          <Link to={"/cart"} className="title">
-                            <i className="fa fa-shopping-cart"></i>{" "}
-                            <sup className="cart-quantity">1</sup>
-                          </Link>
-                        </li>
+                        
                       </>
                     )}
                   </ul>
