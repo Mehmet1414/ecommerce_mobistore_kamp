@@ -8,6 +8,9 @@ const Header = () => {
     zIndex: 10,
   };
   const authState = useSelector((state) => state.authState);
+  const categoryState = useSelector((state)=> state.categoryState)
+
+  console.log("categoryState>>>>",categoryState.categories)
 
   return (
     <>
@@ -125,16 +128,13 @@ const Header = () => {
                           <Link to={"/"}>Home</Link>
                         </li>
                         <li className="has-sub">
-                          <a href="#">Mobiles</a>
+                          <a href="#">Category</a>
                           <ul>
-                            <li>
-                              <Link to={"/product/list"}>Product List</Link>
+                            {categoryState?.categories.map((item,index)=>(
+                            <li key={index}>
+                              <Link to={"/product/list/" + item.code}>{item.name}</Link>
                             </li>
-                            <li>
-                              <Link to={"/product/detail"}>
-                                Product Detail{" "}
-                              </Link>
-                            </li>
+                            ))}
                           </ul>
                         </li>
                         <li>

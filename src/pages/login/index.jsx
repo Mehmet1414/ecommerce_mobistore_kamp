@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useApi } from "../../hook/useApi";
-import { userLogin } from "../../redux/AuthSlice";
 
 const LoginPage = () => {
   const api = useApi();

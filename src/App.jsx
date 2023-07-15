@@ -30,7 +30,7 @@ function App() {
           itemsPerPage: 30,
         },
       });
-      console.log(">>>category verileri >>", categoryRespons.data);
+      //onsole.log(">>>category verileri >>", categoryRespons.data);
       dispatch(setCategories(categoryRespons.data));
     })();
   }, []);
@@ -47,7 +47,7 @@ function App() {
         </Route>
         <Route path="contact" element={<ContactUs />} />
         <Route path="product">
-          <Route path="list" element={<ProductList />} />
+          <Route path="list/:code" element={<ProductList />} />
           <Route path="detail" element={<ProductDetail />} />
         </Route>
         <Route path="checkout" element={<CheckOut />} />
