@@ -1,7 +1,36 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import RelatedProduct from "../../components/relatedProduct";
+import { useApi } from "../../hook/useApi";
 
 const ProductDetail = () => {
+  const params = useParams();
+  const api = useApi();
+  const [productDetail, setProductDetail] = useState(null)
+  const [variant, setVariant] = useState([])
+
+  useEffect(() => {
+    (async () => {
+      const productDetailResponce = await api.get(
+        "shop/products/" + params.code
+      );
+      const promieses = productDetailResponce.data.variants.map(
+        (variantItemString) => {
+          const variantCode = variantItemString.split("/").reverse()[0];
+          return api.get("shop/product-variants/" + variantCode);
+        }
+      );
+
+      const variantResponces = await Promise.all(promieses)
+
+
+      console.log("promieses >>>",promieses)
+      setProductDetail(productDetailResponce.data)
+      console.log("productDetailResponce>>>",productDetailResponce)
+      setVariant(variantResponces.map((item) => (item.data)))
+      console.log("variant >>>",variant)
+    })();
+  }, [params.code]);
   return (
     <>
       {/* page-header */}
@@ -485,7 +514,7 @@ const ProductDetail = () => {
         </div>
         {/* /.product-description */}
         {/* /.product-single */}
-      <RelatedProduct />
+        <RelatedProduct />
       </div>
     </>
   );

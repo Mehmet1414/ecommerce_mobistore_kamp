@@ -28,7 +28,7 @@ useEffect(()=>{
     <>
     <div className="product-block">
                     <div className="product-img">
-                      <Link to={"/product/detail"}>
+                      <Link to={"/product/detail/" + props.item.code}>
                         <img
                           src={"https://ecommerce.udemig.dev" + props.item.images[0].path}
                           alt=""
@@ -46,7 +46,7 @@ useEffect(()=>{
                           {price?.price}
                         </Link>
                         <Link href="#" className="discounted-price">
-                          $1400
+                          {price?.originalPrice}
                         </Link>
                         <span className="offer-price">20%off</span>
                       </div>
