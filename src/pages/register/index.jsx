@@ -52,19 +52,15 @@ const RegisterPage = () => {
                           "shop/customers",
                           formJson,
                           {
-                            headers: {
-                              Accept: "*/*",
-                              "Content-Type": "application/json",
-                            },
+                            Accept: "*/*",
+                            "Content-Type": "application/json",
                           }
-                        );
-                        console.log(
-                          ">>>registerResponce >> ",
-                          customerResponce
-                        );
+                          );
+                          
                         dispatch(customerState(customerResponce));
+                        console.log("customerState>>>",customerState)
                       }}
-                    >
+                      >
                       <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="form-group">
                           <label

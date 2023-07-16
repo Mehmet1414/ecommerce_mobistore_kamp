@@ -217,7 +217,7 @@ const ProductList = (item) => {
                     }
                     onClick={() => handleClick("screenSize")}
                   >
-                    <Link href="#">Screen Size</Link>
+                    <Link href="#">Size</Link>
                     <ul
                       style={{
                         display: menuState === "screenSize" ? "block" : "none",
