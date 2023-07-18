@@ -3,6 +3,7 @@ import AuthSlice from "./AuthSlice";
 import CategorySlice from "./CategorySlice";
 import menuSlice from "./MenuSlice";
 import RegisterSlice from "./CustomerSlice";
+import CartSlice from "./CartSlice";
 
 
 export const store = configureStore({
@@ -10,7 +11,8 @@ export const store = configureStore({
         categoryState:CategorySlice,
         authState:AuthSlice,
         menuState:menuSlice,
-        customerState:RegisterSlice
+        customerState:RegisterSlice,
+        cartState:CartSlice
         
     },
 })

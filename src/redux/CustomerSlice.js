@@ -9,7 +9,7 @@ const RegisterSlice = createSlice ({
     initialState,
     reducers:{
         customers:(state,action)=>{
-            state.user = action.payload
+            state.customer = action.payload
         }
     }
 })

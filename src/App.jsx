@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import AboutPage from "./pages/about";
 import MainPage from "./pages/main";
 import { useApi } from "./hook/useApi";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setCategories } from "./redux/CategorySlice";
 import LoginPage from "./pages/login";
 import RegisterPage from "./pages/register";
@@ -16,12 +16,12 @@ import CheckOut from "./pages/checkOut";
 import CartPage from "./pages/cart";
 import BlogDefault from "./pages/blog/BlogDefault";
 import BlogDetail from "./pages/blog/BlogDetail";
-
+import { setCart } from "./redux/CartSlice";
 
 function App() {
-
   const api = useApi();
   const dispatch = useDispatch();
+  const cartState = useSelector((state) => state.cartState);
   useEffect(() => {
     (async () => {
       const categoryRespons = await api.get("shop/taxons", {
@@ -33,6 +33,26 @@ function App() {
       //onsole.log(">>>category verileri >>", categoryRespons.data);
       dispatch(setCategories(categoryRespons.data));
     })();
+
+    (async () => {
+      const localStrorageCartToken = localStorage.getItem("cartToken");
+
+      if (localStrorageCartToken === null) {
+        //create Token
+        const cartResponse = await api.post("shop/orders", {});
+        console.log(cartResponse);
+        //save Token
+        localStorage.setItem("cartToken", cartResponse.data.tokenValue);
+
+        dispatch(setCart(cartResponse.data));
+      } else if (localStrorageCartToken && cartState.cart === null) {
+        const cartResponse = await api.get(
+          "shop/orders/" + localStrorageCartToken
+        );
+        dispatch(setCart(cartResponse.data));
+      }
+    })();
+    
   }, []);
 
   return (
